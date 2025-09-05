@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#skript, mis valjastab kasutajale tervitust
+
+echo -n "Tere, "
+
+echo -n "$USER"
+
+echo "!"
