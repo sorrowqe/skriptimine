@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo -n "Sisesta oma ees- ja perenimi: "
-read eesnimi perenimi 
-echo -n "Tere tulemast, $eesnimi $perenimi"
-echo
+mod_user=$(echo -n $USER | cut -c1 | tr [:lower:] [:upper:])
+ulosa=$(echo -n $USER | cut -c2-)
+
+echo -n "Tere, "
+
+echo "${mod_user}${ulosa}"
