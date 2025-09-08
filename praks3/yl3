@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -n "Sisestage ainepunktide arv: "
+read ainepunktid
+
+echo -n "Sisestage nädalate arv: "
+read nadalad
+
+koguaeg=$(( ainepunktid * 26  ))
+
+nadalakulu=$(echo  "(($koguaeg + $nadalad -1)/$nadalad)" | bc)
+
+echo "$nadalakulu"
