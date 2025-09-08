@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -n "Sisestage reisijate arv: "
+read reisijad
+
+echo -n "Sisestage kohtade arv bussis: "
+read kohad
+
+ylejaanud=$(( $kohad - $reisijad ))
+echo
+echo -n "Nii palju kohti on üle jäänud bussis: $ylejaanud"
+
+echo
