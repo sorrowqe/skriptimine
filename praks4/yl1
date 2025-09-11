@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Sisestage suvaline täisarv: "
+
+read arv
+
+jaak=$(( arv % 2 ))
+
+if [ $jaak -eq 0 ]; then
+	echo "Antud arv $arv on paaris"
+
+else
+	echo "Antud arv $arv on paaritu"
+fi
