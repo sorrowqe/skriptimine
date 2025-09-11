@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+        echo "Käivita see skript koos arvuga, mille paarsust soovid kontrollida. Näiteks: $0 2"
+
+else
+	arv=$1
+	jaak=$(( $arv % 2 ))
+	if [ $jaak -eq 0 ]; then
+        	echo "Antud arv $arv on paaris"
+	else
+		echo "Antud arv $arv on paaritu"
+	fi
+fi
+
+
