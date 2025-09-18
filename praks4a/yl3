@@ -1,0 +1,19 @@
+#!/bin/bash
+
+alg_kaust="./test"
+lop_kaust="./backup"
+backup_fail="test.backup.tar.gz"
+
+if [ ! -d "$alg_kaust" ];then
+	echo "Viga: kataloogi $alg_kaust ei eksisteeri"
+	exit 1
+fi
+
+if [ ! -d "$lop_kaust" ];then
+	mkdir -p "$lop_kaust"
+fi
+
+tar -czf "$lop_kaust/$backup_fail" -C "$(dirname "$alg_kaust")" "$(basename "$alg_kaust")"
+
+echo "Kataloogi ($alg_kaust) backup_i nimi on ($backup_fail)"
+echo "Ta asub $(realpath $lop_kaust) kataloogis."
