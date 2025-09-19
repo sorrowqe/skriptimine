@@ -1,0 +1,25 @@
+#!/bin/bash
+
+alg_kaust="./test"
+lop_kaust="./backup"
+backup_fail="test.backup.tar.gz"
+
+dir_name=$(basename "$lop_kaust")
+
+date=$(date +%d%b%Y | tr '[:upper:]' '[:lower:]')
+
+if [ ! -d "$alg_kaust" ];then
+	echo "Viga: kataloogi $alg_kaust ei eksisteeri"
+	exit 1
+fi
+
+if [ ! -d "$lop_kaust" ];then
+	mkdir -p "$lop_kaust"
+fi
+
+backup_file="${DIR_NAME}.backup.${date}.tar.gz"
+
+tar -czf "$lop_kaust/$backup_file" -C "$(dirname "$alg_kaust")" "$(basename "$dir_name")"
+
+echo "Kataloogi ($alg_kaust) backup_i nimi on ($backup_file)"
+echo "Ta asub $(realpath $lop_kaust) kataloogis."
