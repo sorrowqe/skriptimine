@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo -n "Sisesta suvaline arv: "
+read arv
+
+# Kontrollime erijuhud
+if [ $arv -lt 2 ]; then
+    echo "$arv - ei ole algarv"
+    exit 0
+fi
+
+jagaja=2
+onAlgarv=true
+
+while [ $jagaja -lt $arv ]
+do
+    if [ $(( arv % jagaja )) -eq 0 ]; then
+        onAlgarv=false
+        break
+    fi
+    jagaja=$(( jagaja + 1 ))
+done
+
+if $onAlgarv; then
+    echo "$arv - on algarv"
+else
+    echo "$arv - ei ole algarv"
+fi
