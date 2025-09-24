@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Kontroll funktsioon positiivse täisarvu jaoks
+function on_positiivne_taisarv() {
+  [[ "$1" =~ ^[1-9][0-9]*$ ]]
+}
+
+read -p "Sisesta ridade arv: " ridade_arv
+if ! on_positiivne_taisarv "$ridade_arv"; then
+  echo "Viga: palun sisesta positiivne täisarv ridade arvuks."
+  exit 1
+fi
+
+read -p "Sisesta tärnide arv reas: " tarnide_arv
+if ! on_positiivne_taisarv "$tarnide_arv"; then
+  echo "Viga: palun sisesta positiivne täisarv tärnide arvuks."
+  exit 1
+fi
+
+if (( tarnide_arv < 2 )); then
+  echo "Viga: tärnide arv peab olema vähemalt 2, et raamiku teha."
+  exit 1
+fi
+
+for (( rida=1; rida<=ridade_arv; rida++ ))
+do
+  echo -n "$rida. "
+  if (( rida == 1 || rida == ridade_arv )); then
+    # Esimene ja viimane rida - kõik tärnid
+    for (( t=1; t<=tarnide_arv; t++ ))
+    do
+      echo -n "* "
+    done
+  else
+    # Vahepealsed read - esimene ja viimane tärn, vahepeal tühjad
+    echo -n "* "
+    for (( t=2; t<tarnide_arv; t++ ))
+    do
+      echo -n "  "   # kaks tühikut, et ruumi tärnide vahel hoida
+    done
+    echo -n "*"
+  fi
+  echo ""
+done
