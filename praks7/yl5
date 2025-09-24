@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Kontroll funktsioon positiivse täisarvu jaoks
+function on_positiivne_taisarv() {
+  [[ "$1" =~ ^[1-9][0-9]*$ ]]
+}
+
+read -p "Sisesta ridade arv: " ridade_arv
+if ! on_positiivne_taisarv "$ridade_arv"; then
+  echo "Viga: palun sisesta positiivne täisarv ridade arvuks."
+  exit 1
+fi
+
+for (( rida=1; rida<=ridade_arv; rida++ ))
+do
+  echo -n "$rida. "
+  # arvuta o-de arv: ridade_arv - rida
+  o_arv=$(( ridade_arv - rida ))
+  
+  # prindi o-d
+  for (( i=1; i<=o_arv; i++ ))
+  do
+    echo -n "o "
+  done
+  
+  # prindi tärnid
+  for (( i=1; i<=rida; i++ ))
+  do
+    echo -n "* "
+  done
+  
+  echo ""
+done
