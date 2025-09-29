@@ -1,0 +1,15 @@
+#!/bin/bash
+# Aleksandr Skobioale
+# Kujund
+# Väljastab ridu tärnidega, sõltudes sellest, mis arvu kasutaja sisestab
+
+read -p "Sisesta ridade arv: " n
+
+for (( i=$n; i>=1; i-- ))
+do
+	for (( j=1; j<=i; j++ ))
+	do
+		echo -n "* "
+	done
+	echo ""
+done
