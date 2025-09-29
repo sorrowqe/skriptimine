@@ -1,6 +1,6 @@
 #!/bin/bash
 # Aleksandr Skobioale
-# Ülesanne 1
+# Info
 # Skript, mis tervitab kasutajat ning väljastab kuupäeva ja aja
 
 echo "Tere, $USER!"
