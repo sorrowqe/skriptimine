@@ -1,0 +1,8 @@
+#!/bin/bash
+# Aleksandr Skobioale
+# Ülesanne 1
+# Skript, mis tervitab kasutajat ning väljastab kuupäeva ja aja
+
+echo "Tere, $USER!"
+
+echo "Täna on $(date +"%d.%m.%Y kell %H:%M")"
