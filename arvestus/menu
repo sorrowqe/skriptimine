@@ -1,0 +1,29 @@
+#!/bin/bash
+# Aleksandr Skobioale
+# Menu
+# Väljastab kasutajale menüü ning vastuse, sõltudes kasutaja valikust
+
+echo "Vali oma söök:"
+echo "1) liha ja kartulid"
+echo "2) kala ja krõpsud"
+echo "3) supp ja salat"
+
+read -p "Tee oma valik (1, 2 või 3): " choice
+
+case $choice in
+1)
+	echo "Väga maitsev, aga jälgi oma tervist!"
+	echo "Head isu!"
+	;;
+2)
+	echo "Brititoit on maitsev!"
+	echo "Head isu!"
+	;;
+3)
+	echo "Nii tervislik ja igav..."
+	echo "Head isu!"
+	;;
+*)
+	echo "Vale valik! Palun vali 1,2 või 3."
+	;;
+esac
